@@ -10,20 +10,18 @@ attr_accessor :username
     end
 
     def login
-        while !@authenticated 
-            puts "Welcome #{@username} Please enter your password to access the cake."
+            puts "Welcome #{@username}. Please enter your password to access the cake."
+         while !@authenticated 
             entered_password = gets.strip
-             if entered_password == @predefinedPassword
-            puts "The cake is yours #{@username}!"
+            if entered_password == @predefinedPassword
+                puts "The cake is yours #{@username}!"
             @authenticated = true
-             else 
-            @attemptCounter = @attemptCounter - 1
-            puts "Incorrect password! #{@attemptCounter} attempts remaining."
-             end
-            if
-            @attemptCounter == 0
-            puts "You have been locked out of Sneakpeek. Please contact the administrator"
-            break
+            else @attemptCounter = @attemptCounter - 1
+                puts "Incorrect password! #{@attemptCounter} attempts remaining."
+            end
+            if @attemptCounter == 0
+                puts "You have been locked out of Sneakpeek. Please contact the administrator."
+                break
             end
         end
     end
